@@ -37,6 +37,7 @@ import java.util.Set;
 @RestController
 public class OpenController
 {
+    RestTemplate restTemplate = new RestTemplate();
     /**
      * A method in this controller adds a new user to the application so needs access to User Services to do this.
      */
@@ -123,7 +124,8 @@ public class OpenController
 
         HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<>(map,
                                                                              headers);
-
+        // This was borked?
+        // Fixed by adding line 40
         String theToken = restTemplate.postForObject(requestURI,
                                                      request,
                                                      String.class);
