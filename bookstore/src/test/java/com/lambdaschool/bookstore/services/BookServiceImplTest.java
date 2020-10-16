@@ -45,32 +45,32 @@ public class BookServiceImplTest
     }
 
     @Test
-    public void findAll()
+    public void a_findAll()
     {
         assertEquals(5, bookService.findAll().size());
     }
 
     @Test
-    public void findBookById()
+    public void b_findBookById()
     {
         assertEquals("The Da Vinci Code", bookService.findBookById(28).getTitle());
     }
 
     @Test(expected = EntityNotFoundException.class)
-    public void notFindBookById()
+    public void c_notFindBookById()
     {
         assertEquals("Should fail", bookService.findBookById(999));
     }
 
     @Test
-    public void delete()
+    public void d_delete()
     {
         bookService.delete(27);
         assertEquals(4, bookService.findAll().size());
     }
 
     @Test
-    public void save()
+    public void e_save()
     {
         String bTitle = "Test Book Title";
         // Section section = new Section("Philosophy");
