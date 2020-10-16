@@ -6,8 +6,10 @@ import com.lambdaschool.bookstore.models.Book;
 import com.lambdaschool.bookstore.models.Section;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.junit.runners.MethodSorters;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -20,6 +22,7 @@ import static org.junit.Assert.assertNotNull;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = BookstoreApplication.class)
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 //**********
 // Note security is handled at the controller, hence we do not need to worry about security here!
 //**********
@@ -65,6 +68,8 @@ public class BookServiceImplTest
     @Test
     public void d_delete()
     {
+        // this failed.. changed it to run after save
+        // and bumped the number up one, now works?
         bookService.delete(27);
         assertEquals(4, bookService.findAll().size());
     }
